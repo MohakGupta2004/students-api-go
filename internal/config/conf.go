@@ -24,7 +24,6 @@ func MustHave() *Config {
 		flags := flag.String("config", "", "path to configuration file")
 		flag.Parse()
 		getEnv = *flags
-
 		if getEnv == "" {
 			log.Fatal("Config file not set")
 		}
