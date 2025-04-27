@@ -11,15 +11,14 @@ import (
 	"time"
 
 	"github.com/MohakGupta2004/students-api/internal/config"
+	"github.com/MohakGupta2004/students-api/internal/http/handlers/student"
 )
 
 func main() {
 	cfg := config.MustHave()
 	router := http.NewServeMux()
 
-	router.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
-		w.Write([]byte("Hello World"))
-	})
+	router.HandleFunc("POST /api/student", student.New())
 
 	server := &http.Server{
 		Addr:    cfg.HttpServer.Addr,
